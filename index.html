@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immanuel Capital Partners Limited — Business &amp; Financial Advisory</title>
+<meta name="description" content="Immanuel Capital Partners Limited — premier business and financial advisory firm in Abuja, Nigeria. Investment banking, corporate finance, debt recovery, and DFI-grade advisory services.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --ink-soft:#3a3a36;
+    --paper:#faf8f3;
+    --paper-deep:#f1ede3;
+    --line:#dcd6c6;
+    --green:#3f5c1a;
+    --green-deep:#2c4012;
+    --green-bright:#5b8a28;
+    --gold:#a9824a;
+    --gold-soft:#cba968;
+    --white:#ffffff;
+
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Inter', -apple-system, sans-serif;
+    --mono:'Space Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--green-bright);color:var(--white);}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- ledger rule, the signature device ---------- */
+  .ledger{
+    position:relative;
+    height:2px;
+    background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 14px);
+    margin:0 0;
+  }
+  .ledger.solid{background:var(--line);}
+  .ledger-thick{height:2px;background:var(--green-deep);}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--green-deep);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;background:var(--gold);
+    display:inline-block;
+  }
+
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:500;color:var(--ink);letter-spacing:-.01em;}
+
+  .section{padding:108px 0;position:relative;}
+  .section-tight{padding:72px 0;}
+
+  .num{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--gold);
+    letter-spacing:.05em;
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(250,248,243,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    transition:padding .3s ease;
+  }
+  nav{
+    max-width:1180px;margin:0 auto;padding:20px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:var(--serif);font-size:20px;font-weight:600;
+    color:var(--green-deep);
+  }
+  .logo .mark{
+    width:34px;height:34px;border:1px solid var(--green-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:11px;font-weight:700;
+    color:var(--green-deep);
+  }
+  .logo-text{display:flex;flex-direction:column;line-height:1.05;}
+  .logo-text small{font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:var(--ink-soft);font-weight:400;text-transform:uppercase;}
+
+  .navlinks{display:flex;align-items:center;gap:34px;}
+  .navlinks a{
+    font-size:13px;font-weight:500;color:var(--ink-soft);
+    position:relative;padding:4px 0;
+  }
+  .navlinks a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;
+    background:var(--green-bright);transition:width .25s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .navlinks a:hover{color:var(--ink);}
+
+  .btn{
+    font-family:var(--sans);font-size:13px;font-weight:600;
+    padding:11px 22px;border:1px solid var(--green-deep);
+    color:var(--white);background:var(--green-deep);
+    display:inline-block;cursor:pointer;
+    transition:background .25s ease, color .25s ease, transform .2s ease;
+  }
+  .btn:hover{background:var(--green-bright);border-color:var(--green-bright);transform:translateY(-1px);}
+  .btn-outline{background:transparent;color:var(--green-deep);}
+  .btn-outline:hover{background:var(--green-deep);color:var(--white);}
+
+  .navcta{display:flex;align-items:center;gap:18px;}
+  .navphone{font-family:var(--mono);font-size:12px;color:var(--ink-soft);display:none;}
+
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;}
+  .menu-toggle span{width:22px;height:1.5px;background:var(--ink);display:block;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:200px 0 110px;
+    position:relative;
+    background:
+      radial-gradient(ellipse at 85% 0%, rgba(91,138,40,.08), transparent 55%),
+      var(--paper);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:64px;align-items:end;}
+  .hero h1{
+    font-size:clamp(40px,5.4vw,72px);
+    line-height:1.04;
+    margin:22px 0 26px;
+    max-width:640px;
+  }
+  .hero h1 em{font-style:italic;color:var(--green-bright);font-weight:400;}
+  .hero p{font-size:17px;color:var(--ink-soft);max-width:480px;margin-bottom:34px;}
+  .hero-cta{display:flex;gap:14px;margin-bottom:8px;flex-wrap:wrap;}
+
+  .hero-side{
+    border-left:1px solid var(--line);
+    padding-left:36px;
+  }
+  .hero-side p{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink-soft);line-height:1.55;}
+  .hero-side .src{margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+
+  .stat-strip{
+    margin-top:90px;
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line);
+  }
+  .stat{
+    padding:26px 28px 0;
+    border-left:1px solid var(--line);
+  }
+  .stat:first-child{border-left:none;padding-left:0;}
+  .stat .val{font-family:var(--serif);font-size:34px;color:var(--green-deep);}
+  .stat .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
+
+  /* ---------- section headers ---------- */
+  .sec-head{max-width:680px;margin-bottom:56px;}
+  .sec-head h2{font-size:clamp(30px,3.6vw,46px);margin-top:16px;line-height:1.08;}
+  .sec-head .lede{font-size:16px;color:var(--ink-soft);margin-top:18px;max-width:560px;}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start;}
+  .about-grid p{color:var(--ink-soft);font-size:15.5px;margin-bottom:18px;}
+  .about-figure{
+    background:var(--green-deep);color:var(--paper);
+    padding:40px 36px;position:relative;
+  }
+  .about-figure::before{
+    content:"";position:absolute;top:10px;left:10px;right:-10px;bottom:-10px;
+    border:1px solid var(--gold-soft);z-index:-1;
+  }
+  .about-figure .quote{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;}
+  .about-figure .attr{margin-top:22px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft);}
+
+  /* ---------- vision/mission cards ---------- */
+  .pillars{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    border-top:1px solid var(--line);border-left:1px solid var(--line);
+  }
+  .pillar{
+    border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:34px 28px;background:var(--paper);transition:background .3s ease;
+  }
+  .pillar:hover{background:var(--paper-deep);}
+  .pillar .num{display:block;margin-bottom:18px;}
+  .pillar h4{font-size:17px;margin-bottom:10px;}
+  .pillar p{font-size:14px;color:var(--ink-soft);}
+
+  /* ---------- services ---------- */
+  .services-bg{background:var(--paper-deep);}
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .svc-card{
+    background:var(--paper);padding:34px 36px;cursor:pointer;
+    transition:background .25s ease;
+  }
+  .svc-card:hover{background:var(--white);}
+  .svc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;}
+  .svc-card h4{font-size:18px;line-height:1.3;max-width:380px;}
+  .svc-toggle{
+    width:26px;height:26px;border:1px solid var(--green-bright);
+    flex-shrink:0;display:flex;align-items:center;justify-content:center;
+    font-size:15px;color:var(--green-deep);transition:transform .3s ease, background .3s ease;
+  }
+  .svc-card.open .svc-toggle{background:var(--green-deep);color:var(--white);transform:rotate(45deg);}
+  .svc-body{
+    max-height:0;overflow:hidden;transition:max-height .4s ease, margin-top .4s ease;
+  }
+  .svc-card.open .svc-body{max-height:400px;margin-top:18px;}
+  .svc-body ul{list-style:none;}
+  .svc-body li{
+    font-size:13.5px;color:var(--ink-soft);padding:7px 0 7px 18px;position:relative;
+    border-top:1px dashed var(--line);
+  }
+  .svc-body li:first-child{border-top:none;}
+  .svc-body li::before{content:"—";position:absolute;left:0;color:var(--gold);}
+
+  /* ---------- financial advisory flagship ---------- */
+  .flagship{background:var(--green-deep);color:var(--paper);}
+  .flagship .eyebrow{color:var(--gold-soft);}
+  .flagship .eyebrow::before{background:var(--gold-soft);}
+  .flagship .sec-head h2{color:var(--white);}
+  .flagship .sec-head .lede{color:rgba(250,248,243,.72);}
+
+  .timeline{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    margin:62px 0 70px;
+    border-top:1px solid rgba(250,248,243,.22);
+  }
+  .tl-item{
+    padding:26px 30px 0;border-right:1px solid rgba(250,248,243,.22);
+    position:relative;
+  }
+  .tl-item:last-child{border-right:none;}
+  .tl-item::before{
+    content:"";position:absolute;top:-1px;left:0;width:40px;height:2px;background:var(--gold-soft);
+  }
+  .tl-item .yr{font-family:var(--mono);font-size:12px;color:var(--gold-soft);}
+  .tl-item h4{font-size:18px;color:var(--white);margin:10px 0 8px;}
+  .tl-item p{font-size:13.5px;color:rgba(250,248,243,.68);}
+
+  .competence{
+    background:rgba(250,248,243,.05);
+    border:1px solid rgba(250,248,243,.18);
+    padding:38px 40px;margin-bottom:60px;
+  }
+  .competence p{font-size:15px;color:rgba(250,248,243,.82);}
+
+  .two-col-list{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .two-col-list h4{
+    color:var(--gold-soft);font-family:var(--mono);font-size:12px;
+    letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;font-weight:700;
+  }
+  .two-col-list ul{list-style:none;}
+  .two-col-list li{
+    font-size:14.5px;padding:11px 0;border-top:1px solid rgba(250,248,243,.15);
+    color:rgba(250,248,243,.88);padding-left:18px;position:relative;
+  }
+  .two-col-list li::before{content:"›";position:absolute;left:0;color:var(--gold-soft);}
+
+  /* ---------- leadership ---------- */
+  .lead-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+  .lead-card{
+    background:var(--white);border:1px solid var(--line);
+    padding:32px;transition:border-color .25s ease, box-shadow .25s ease;
+  }
+  .lead-card:hover{border-color:var(--green-bright);box-shadow:0 14px 34px -22px rgba(44,64,18,.35);}
+  .lead-top{display:flex;gap:20px;align-items:flex-start;margin-bottom:18px;}
+
+  .avatar{
+    width:74px;height:74px;border-radius:50%;
+    background:linear-gradient(155deg,var(--green-bright),var(--green-deep));
+    color:var(--paper);font-family:var(--serif);font-size:24px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;position:relative;overflow:hidden;
+    border:2px solid var(--paper-deep);
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:none;}
+  /* To add a real photo later: give the <img> a src and it will display automatically,
+     covering the monogram beneath it. */
+  .avatar img[src]:not([src=""]){display:block;}
+
+  .lead-name h4{font-size:19px;margin-bottom:4px;}
+  .lead-title{
+    font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--green-bright);font-weight:700;
+  }
+  .lead-creds{font-size:12.5px;color:var(--ink-soft);font-style:italic;margin:14px 0 16px;line-height:1.55;}
+  .lead-bio{font-size:13.5px;color:var(--ink-soft);max-height:0;overflow:hidden;transition:max-height .45s ease;}
+  .lead-card.open .lead-bio{max-height:600px;margin-bottom:16px;}
+  .lead-bio p{margin-bottom:10px;}
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;
+    padding:5px 10px;border:1px solid var(--line);color:var(--ink-soft);
+  }
+  .read-more{
+    margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--green-deep);font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+  }
+  .read-more::after{content:"↓";transition:transform .3s ease;}
+  .lead-card.open .read-more::after{transform:rotate(180deg);}
+
+  .photo-note{
+    margin-top:46px;padding:18px 22px;border:1px dashed var(--line);
+    font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);
+    display:flex;align-items:center;gap:10px;
+  }
+  .photo-note span{color:var(--gold);}
+
+  /* ---------- contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line);}
+  .contact-cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:38px 40px;}
+  .contact-cell h4{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .contact-cell p, .contact-cell a{font-size:15px;color:var(--ink-soft);line-height:1.7;display:block;}
+  .contact-cell a:hover{color:var(--green-bright);}
+
+  .closing-quote{
+    text-align:center;max-width:760px;margin:90px auto 0;
+  }
+  .closing-quote p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,28px);line-height:1.55;color:var(--ink);}
+  .closing-quote .attr{margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:rgba(250,248,243,.6);padding:46px 0;}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot-row .logo{color:var(--paper);}
+  .foot-row .logo .mark{border-color:var(--gold-soft);color:var(--gold-soft);}
+  footer small{font-family:var(--mono);font-size:11px;letter-spacing:.04em;}
+
+  /* ---------- reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (min-width:860px){.navphone{display:block;}}
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-side{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:28px;margin-top:10px;}
+    .about-grid{grid-template-columns:1fr;gap:40px;}
+    .pillars{grid-template-columns:repeat(2,1fr);}
+    .stat-strip{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(3){border-left:none;}
+    .timeline{grid-template-columns:1fr;}
+    .tl-item{border-right:none;border-bottom:1px solid rgba(250,248,243,.22);padding-bottom:24px;}
+    .two-col-list{grid-template-columns:1fr;gap:30px;}
+  }
+  @media (max-width:760px){
+    .navlinks,.navphone{display:none;}
+    .menu-toggle{display:flex;}
+    .svc-grid{grid-template-columns:1fr;}
+    .lead-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .section{padding:72px 0;}
+    .hero{padding:150px 0 70px;}
+  }
+
+  /* mobile nav drawer */
+  .mobile-nav{
+    position:fixed;inset:0;background:var(--paper);z-index:99;
+    display:flex;flex-direction:column;justify-content:center;gap:28px;padding:32px;
+    transform:translateX(100%);transition:transform .4s ease;
+  }
+  .mobile-nav.open{transform:translateX(0);}
+  .mobile-nav a{font-family:var(--serif);font-size:30px;}
+  .mobile-close{position:absolute;top:24px;right:32px;background:none;border:none;font-size:28px;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">
+      <span class="mark">ICP</span>
+      <span class="logo-text">Immanuel Capital<small>Business &amp; Financial Advisory</small></span>
+    </a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#advisory">Financial Advisory</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="navcta">
+      <span class="navphone">+234 803 304 2225</span>
+      <a href="#contact" class="btn">Enquire</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#advisory">Financial Advisory</a>
+  <a href="#leadership">Leadership</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Established Abuja, Nigeria · RC 886263</div>
+          <h1>Value-adding engagement, <em>at institutional grade.</em></h1>
+          <p>Immanuel Capital Partners Limited is a premier business and financial advisory firm delivering complete, DFI‑grade solutions for businesses and institutions across Nigeria and the broader African market.</p>
+          <div class="hero-cta">
+            <a href="#advisory" class="btn">Explore Financial Advisory</a>
+            <a href="#leadership" class="btn btn-outline">Meet the Board</a>
+          </div>
+        </div>
+        <div class="hero-side">
+          <p>"We foster a culture where our clients never doubt how important we are to them — and vice versa."</p>
+          <div class="src">Service Philosophy</div>
+        </div>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="val">100+</div><div class="lbl">Years Combined Experience</div></div>
+        <div class="stat"><div class="val">$300M+</div><div class="lbl">Career Transactions Managed</div></div>
+        <div class="stat"><div class="val">08</div><div class="lbl">Core Practice Areas</div></div>
+        <div class="stat"><div class="val">DFI</div><div class="lbl">Grade Advisory Standards</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="eyebrow">01 — About the Company</div>
+          <h2 style="font-size:34px;margin:18px 0 22px;">A premier advisory firm</h2>
+          <p>We specialise in Corporate Turnaround, Corporate Valuation, Business Plan Articulation, Accounting Systems, Tax Advisory, Internal Control, Audit and Compliance, Risk Management, Human Capital Development, and an industry-leading Debt Recovery practice.</p>
+          <p>Our principal focus is helping Micro, Small, and Medium Enterprises succeed by instituting niche business models and deploying cutting-edge technology to increase operational efficiency, competitiveness, and long-term sustainability.</p>
+          <p>Our firm is staffed by qualified, multidisciplinary professionals bringing decades of collective experience in business and financial advisory, corporate finance, public-sector development finance, forensic accounting, and legal advisory to every engagement.</p>
+        </div>
+        <div class="about-figure reveal">
+          <p class="quote">"We provide the highest quality, value-adding professional services with complete independence and integrity — keeping costs competitive and commensurate with value, whatever the client's size and wherever they are located."</p>
+          <div class="attr">Our Philosophy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION / MISSION -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">02 — Vision &amp; Mission</div>
+        <h2>Our purpose &amp; philosophy</h2>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="pillars reveal">
+        <div class="pillar">
+          <span class="num">01</span>
+          <h4>Our Vision</h4>
+          <p>To be the consulting firm every client regards as an indispensable partner in growth, governance, and financial stewardship.</p>
+        </div>
+        <div class="pillar">
+          <span class="num">02</span>
+          <h4>Our Mission</h4>
+          <p>To become a referenced multi-disciplinary firm, employing technology and a motivated team to deliver value that exceeds client expectations.</p>
+        </div>
+        <div class="pillar">
+          <span class="num">03</span>
+          <h4>Our Philosophy</h4>
+          <p>Highest quality, value-adding services delivered with complete independence and integrity, at costs commensurate with value.</p>
+        </div>
+        <div class="pillar">
+          <span class="num">04</span>
+          <h4>Our Commitment</h4>
+          <p>We leverage cutting-edge technology to make advisory more efficient, accurate, and affordable for every client we serve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services-bg" id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">03 — Professional Services</div>
+        <h2>Comprehensive advisory solutions</h2>
+        <p class="lede">Eight integrated practice areas, backed by decades of institutional banking experience and delivered to the highest professional standards.</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="svc-grid reveal" id="svcGrid">
+
+        <div class="svc-card">
+          <div class="svc-top"><h4>Cloud Accounting &amp; Xero Platform</h4><div class="svc-toggle">+</div></div>
+          <div class="svc-body"><ul>
+            <li>Accounting System Implementation &amp; Maintenance</li>
+            <li>Bookkeeping and Transaction Recording</li>
+            <li>Reconciliations &amp; Financial Reporting</li>
+            <li>CFO Advisory Services</li>
+            <li>Fixed Asset Management &amp; Depreciation Scheduling</li>
+            <li>Payroll Services and Management</li>
+            <li>Cash Flow Management and Forecasting</li>
+            <li>Expense Reporting &amp; Budget Variance Analysis</li>
+          </ul></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><h4>Tax Management Services</h4><div class="svc-toggle">+</div></div>
+          <div class="svc-body"><ul>
+            <li>Tax Planning and Optimisation Strategies</li>
+            <li>Tax Compliance and Regulatory Filing</li>
+            <li>VAT Management and Advisory</li>
+            <li>Annual Tax Returns Preparation and Filing</li>
+            <li>PAYE and Withholding Tax Management</li>
+            <li>Tax Clearance Certificate Procurement</li>
+            <li>FIRS and State Revenue Board Liaison</li>
+            <li>Specialised Tax Training</li>
+          </ul></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><h4>Consulting &amp; Management Services</h4><div class="svc-toggle">+</div></div>
+          <div class="svc-body"><ul>
+            <li>Organisational and Accounting Manual Preparation</li>
+            <li>Efficiency and Process Studies</li>
+            <li>Forensic Accounting and Fraud Investigation</li>
+            <li>Industry-Specific Tool Research &amp; Implementation</li>
+            <li>Management Consultancy</li>
+          </ul></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><h4>Inventory Assurance System</h4><div class="svc-toggle">+</div></div>
+          <div class="svc-body"><ul>
+            <li>Stock Control System Installation</li>
+            <li>Physical Stock-Taking Exercises</li>
+            <li>Professional Stock Valuation Services</li>
+            <li>Optimal Stock Level and Re-order Advisory</li>
+            <li>Accountancy Systems Review and Formulation</li>
+          </ul></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><h4>Financial Advisory Services</h4><div class="svc-toggle">+</div></div>
+          <div class="svc-body"><ul>
+            <li>Financial Management and Treasury Advisory</li>
+            <li>Feasibility Studies and Project Report Services</li>
+            <li>Business Development and Strategic Planning</li>
+            <li>Investment Advice — Capital, Money &amp; Alternative Markets</li>
+            <li>Loan Proposals for Bank and DFI Financing</li>
+            <li>Debt Restructuring and Workout Advisory</li>
+            <li>Project Finance and Syndicated Credit Structuring</li>
+            <li>Corporate Valuation and Business Plan Articulation</li>
+          </ul></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><h4>Secretarial and Legal Services</h4><div class="svc-toggle">+</div></div>
+          <div class="svc-body"><ul>
+            <li>Business Registration and Incorporation</li>
+            <li>Drafting of Contracts and SLAs</li>
+            <li>Advice on Legal Implications of Transactions</li>
+            <li>Filing Returns with Appropriate Authorities</li>
+            <li>Corporate Governance and Statutory Compliance</li>
+          </ul></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><h4>Human Resources Management</h4><div class="svc-toggle">+</div></div>
+          <div class="svc-body"><ul>
+            <li>Executive Search and Head Hunting</li>
+            <li>Selection and Recruitment Advisory</li>
+            <li>In-House and General Training Services</li>
+            <li>Personnel Management Systems Design</li>
+            <li>Staff Handbooks and Conditions of Service</li>
+            <li>Personnel Outsourcing and Secondment</li>
+          </ul></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-top"><h4>Marketing &amp; Operations</h4><div class="svc-toggle">+</div></div>
+          <div class="svc-body"><ul>
+            <li>Marketing and Market Research</li>
+            <li>Production Management and Operations Optimisation</li>
+          </ul></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAGSHIP FINANCIAL ADVISORY -->
+  <section class="section flagship" id="advisory">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">04 — Flagship Practice</div>
+        <h2>Financial advisory services</h2>
+        <p class="lede">Investment banking, transaction structuring, and capital advisory at institutional grade — backed by decades of experience from NEXIM, Afreximbank, and leading Nigerian financial institutions.</p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="yr">NAL Merchant Bank Plc</div>
+          <h4>Project Finance Unit</h4>
+          <p>Formulation and implementation of the World Bank-assisted Infrastructure Development Fund and Health Systems Fund.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">NEXIM Bank</div>
+          <h4>Risk Asset &amp; Cross Border Finance</h4>
+          <p>Management of the Bank's risk asset portfolio and landmark cross-border and project finance transactions.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">Afreximbank</div>
+          <h4>Syndicated Credit</h4>
+          <p>Direct deal experience structuring and arranging syndicated credit facilities for institutional uptake.</p>
+        </div>
+      </div>
+
+      <div class="competence reveal">
+        <h4 style="color:var(--gold-soft);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Our Competitive Advantage</h4>
+        <p>What distinguishes Immanuel Capital Partners in financial advisory is the depth of our team's transaction experience from within Nigeria's leading development finance institutions. Our senior partners have led landmark deals at NEXIM Bank, NAL Merchant Bank Plc (now Sterling Bank Group), and Afreximbank — giving us an intimate understanding of deal structuring, DFI credit requirements, syndication mechanics, and the realities of bringing complex transactions to financial close in Nigerian and African markets.</p>
+      </div>
+
+      <div class="two-col-list reveal">
+        <div>
+          <h4>Core Advisory Services</h4>
+          <ul>
+            <li>Investment Advice — Capital Market, Money Market &amp; Alternatives</li>
+            <li>Loan Proposals for Banks and DFIs</li>
+            <li>Debt Restructuring and Workout Advisory</li>
+            <li>Project Finance and Syndicated Credit Structuring</li>
+            <li>Corporate Valuation and Business Plan Articulation</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Transaction Support</h4>
+          <ul>
+            <li>Information Memoranda and Investor Data Rooms</li>
+            <li>SAFE Notes, Equity Structuring, Cap Table Advisory</li>
+            <li>PE- and DFI-grade Financial Modelling and Projections</li>
+            <li>Feasibility Studies and Market Assessments</li>
+            <li>Term Sheet Negotiation and Deal Documentation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section class="section" id="leadership">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">05 — Board &amp; Leadership</div>
+        <h2>The people behind the practice</h2>
+        <p class="lede">A multidisciplinary board of seasoned bankers, accountants, engineers, and legal practitioners — drawn from Nigeria's leading development finance institutions.</p>
+      </div>
+
+      <div class="lead-grid reveal" id="leadGrid">
+
+        <!-- Chairman -->
+        <article class="lead-card" data-person="chairman">
+          <div class="lead-top">
+            <div class="avatar"><img src="" alt="Mr. Ekere"><span>ME</span></div>
+            <div class="lead-name">
+              <h4>Mr. Ekere</h4>
+              <div class="lead-title">Chairman, Board of Directors</div>
+            </div>
+          </div>
+          <div class="lead-creds">B.Sc. &amp; M.Sc. Industrial Engineering (Univ. of Central Florida) · MBA Banking &amp; Finance (Univ. of Lagos) · AMP 15 (Lagos Business School) · FCICA</div>
+          <div class="lead-bio">
+            <p>Served as Executive Director (Operations) at NEXIM Bank until 2009, managing the Bank's entire risk asset portfolio. Appointed by former President Chief Olusegun Obasanjo.</p>
+            <p>Began his banking career in 1981 at the Nigerian Industrial Development Bank, later joining NAL Merchant Bank Plc, where he rose to Deputy General Manager. Currently a Director on the Board of the NDCCITMA.</p>
+          </div>
+          <div class="tags"><span class="tag">Investment Banking</span><span class="tag">Risk Assets</span><span class="tag">Project Finance</span></div>
+          <div class="read-more">Read full bio</div>
+        </article>
+
+        <!-- CEO -->
+        <article class="lead-card" data-person="ceo">
+          <div class="lead-top">
+            <div class="avatar"><img src="" alt="Adewale Aderounmu"><span>AA</span></div>
+            <div class="lead-name">
+              <h4>Adewale Aderounmu</h4>
+              <div class="lead-title">CEO / Managing Partner</div>
+            </div>
+          </div>
+          <div class="lead-creds">B.Sc. Mathematics (Lagos State University, 1990) · MBA (Delta State University) · MCIB · MasterCard Scholar — Rural &amp; Agricultural Finance (2017)</div>
+          <div class="lead-bio">
+            <p>Over 35 years of experience spanning Corporate Planning, Corporate Banking, and Corporate Finance. Joined NEXIM Bank in 2004, later leading the Cross Border Finance and Project Finance departments.</p>
+            <p>At NAL Bank, packaged milestone transactions including the acquisition of Nigerdock Nigeria Limited and the privatisation of Ikoyi Hotels. At NEXIM, led a USD 12.0 million Syndicated Credit Guarantee Facility from Afreximbank.</p>
+          </div>
+          <div class="tags"><span class="tag">Corporate Finance</span><span class="tag">Syndicated Credit</span><span class="tag">Microfinance</span></div>
+          <div class="read-more">Read full bio</div>
+        </article>
+
+        <!-- Senior Partner -->
+        <article class="lead-card" data-person="senior-partner">
+          <div class="lead-top">
+            <div class="avatar"><img src="" alt="Olawale Ola"><span>OO</span></div>
+            <div class="lead-name">
+              <h4>Olawale Ola</h4>
+              <div class="lead-title">Senior Partner</div>
+            </div>
+          </div>
+          <div class="lead-creds">MSc Professional Accountancy, Univ. of London (Merit) · BSc Accounting, Oxford Brookes · FCCA · ACA (ICAN) · CFA Society UK</div>
+          <div class="lead-bio">
+            <p>Over 20 years of experience across banking, project finance, audit, investment advisory, and financial reporting. Dual-qualified under ACCA (UK) and ICAN.</p>
+            <p>Founder of Gilgal Global Investments Company Ltd (UK) and Co-founder of Intercontinental Capital for Africa Ltd (UK), advising boards on financing strategy and structured transactions.</p>
+          </div>
+          <div class="tags"><span class="tag">Structured Finance</span><span class="tag">IFRS / IAS 39</span><span class="tag">Credit Risk</span></div>
+          <div class="read-more">Read full bio</div>
+        </article>
+
+        <!-- Director -->
+        <article class="lead-card" data-person="director">
+          <div class="lead-top">
+            <div class="avatar"><img src="" alt="Engr. Babatunde Aina"><span>BA</span></div>
+            <div class="lead-name">
+              <h4>Engr. Babatunde Aina, MFR</h4>
+              <div class="lead-title">Director</div>
+            </div>
+          </div>
+          <div class="lead-creds">BEng Civil Engineering (Swansea) · MBA &amp; DBA (Cardiff University) · Member of the Federal Republic (MFR)</div>
+          <div class="lead-bio">
+            <p>Recipient of the Nigerian National Honour, MFR. Over 35 years of global experience in construction, infrastructure development, and project management across the UK, EMEA, and Nigeria.</p>
+            <p>Deputy Managing Director and Group CFO of Greenplinth Africa Group, lead developer of the 80 Million Clean Cookstove Project, a UNFCCC-registered climate initiative.</p>
+          </div>
+          <div class="tags"><span class="tag">Infrastructure</span><span class="tag">Carbon Markets</span><span class="tag">Sustainability</span></div>
+          <div class="read-more">Read full bio</div>
+        </article>
+
+        <!-- Partner Finance & Assurance -->
+        <article class="lead-card" data-person="partner-finance">
+          <div class="lead-top">
+            <div class="avatar"><img src="" alt="Zakari Musa"><span>ZM</span></div>
+            <div class="lead-name">
+              <h4>Zakari Musa</h4>
+              <div class="lead-title">Partner — Finance &amp; Assurance</div>
+            </div>
+          </div>
+          <div class="lead-creds">B.Sc. Accounting &amp; MBA, Ahmadu Bello University, Zaria · FCA · Associate Member, Nigerian Institute of Management</div>
+          <div class="lead-bio">
+            <p>Approximately 20 years of cumulative experience in banking, specialising in Financial Analysis, Debt Restructuring, and Project Management.</p>
+            <p>His expertise in forensic accounting and debt portfolio management forms a critical pillar of the firm's Debt Recovery Division.</p>
+          </div>
+          <div class="tags"><span class="tag">Forensic Accounting</span><span class="tag">Debt Restructuring</span></div>
+          <div class="read-more">Read full bio</div>
+        </article>
+
+        <!-- Senior Executive -->
+        <article class="lead-card" data-person="senior-executive">
+          <div class="lead-top">
+            <div class="avatar"><img src="" alt="Mohammed Jibril"><span>MJ</span></div>
+            <div class="lead-name">
+              <h4>Mohammed Jibril</h4>
+              <div class="lead-title">Senior Executive</div>
+            </div>
+          </div>
+          <div class="lead-creds">B.Sc. Accounting, Ahmadu Bello University, Zaria · MBA · ACA (ICAN)</div>
+          <div class="lead-bio">
+            <p>Formerly Head of the Bank Reconciliation and Investigation Unit at the Ministry of Defence Headquarters, with over 20 years across Public, Private, and Development Finance Institutions.</p>
+            <p>His investigative accounting background is invaluable to the firm's forensic and debt recovery operations.</p>
+          </div>
+          <div class="tags"><span class="tag">Investigative Accounting</span><span class="tag">Compliance</span></div>
+          <div class="read-more">Read full bio</div>
+        </article>
+
+        <!-- Legal Adviser -->
+        <article class="lead-card" data-person="legal-adviser">
+          <div class="lead-top">
+            <div class="avatar"><img src="" alt="Austin J. Otah"><span>AO</span></div>
+            <div class="lead-name">
+              <h4>Austin J. Otah, Esq.</h4>
+              <div class="lead-title">Legal Adviser · Notary Public</div>
+            </div>
+          </div>
+          <div class="lead-creds">LL.B. (Hons), Obafemi Awolowo University · BL, Nigerian Law School · MA Law, London Metropolitan University · Notary Public</div>
+          <div class="lead-bio">
+            <p>Principal Consulting Counsel of Messrs Esquires' Legal, with offices in Abuja, London, and New York. Called to the Nigerian Bar in 1990.</p>
+            <p>Part of the legal team representing Samson Siasia before the Court of Arbitration for Sport (CAS), where the athlete's ban was successfully overturned.</p>
+          </div>
+          <div class="tags"><span class="tag">Maritime Law</span><span class="tag">Arbitration</span><span class="tag">Sports Law</span></div>
+          <div class="read-more">Read full bio</div>
+        </article>
+
+      </div>
+
+      <div class="photo-note reveal">
+        <span>＋</span> Executive photographs to be added — each portrait slot above is wired up and will display automatically once supplied.
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">06 — Contact Details</div>
+        <h2>Contact Immanuel Capital</h2>
+        <p class="lede">We welcome enquiries from institutions, enterprises, and investors seeking world-class advisory services. Our team is available to discuss your specific requirements.</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="contact-grid reveal">
+        <div class="contact-cell">
+          <h4>Principal Office</h4>
+          <p>17, Touggourt Street<br>Wuse Zone 2<br>Abuja, Nigeria</p>
+        </div>
+        <div class="contact-cell">
+          <h4>Telephone</h4>
+          <a href="tel:+2348033042225">+234 803 304 2225</a>
+          <a href="tel:+2348182894108">+234 818 289 4108</a>
+        </div>
+        <div class="contact-cell">
+          <h4>Electronic Mail</h4>
+          <a href="mailto:immanuelcapitalpartners@gmail.com">immanuelcapitalpartners@gmail.com</a>
+        </div>
+        <div class="contact-cell">
+          <h4>Practice Focus</h4>
+          <p>Investment Banking &amp; Financial Advisory<br>Debt Recovery &amp; Receivership<br>Corporate Finance &amp; Restructuring</p>
+        </div>
+      </div>
+
+      <div class="closing-quote reveal">
+        <p>"We seek to provide our clients with quality and depth of services that reflect the high-level resources we parade in the firm — fostering a culture where our clients never doubt how important we are to them, and vice versa."</p>
+        <div class="attr">Immanuel Capital Partners Limited · Service Philosophy</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <a href="#top" class="logo">
+      <span class="mark">ICP</span>
+      <span>Immanuel Capital Partners Limited</span>
+    </a>
+    <small>Abuja, Nigeria · RC 886263 · © 2026</small>
+  </div>
+</footer>
+
+<script>
+  // mobile nav
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  menuToggle.addEventListener('click', () => mobileNav.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+  // services accordion
+  document.querySelectorAll('.svc-card').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('open'));
+  });
+
+  // leadership bio toggle
+  document.querySelectorAll('.lead-card').forEach(card => {
+    const trigger = card.querySelector('.read-more');
+    trigger.addEventListener('click', () => card.classList.toggle('open'));
+  });
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
